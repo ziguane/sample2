@@ -1,0 +1,41 @@
+micronaut:
+    application:
+        name: sample2
+    security:
+        enabled: true
+        endpoints:
+            login:
+                enabled: true 
+            logout:
+                enabled: true
+                path: '/logout'
+        interceptUrlMap:
+            -
+                pattern: /public/**
+                httpMethod: GET
+                access:
+                    - isAnonymous()
+        session:
+            enabled: true 
+            login-success-target-url: '/'
+            login-failure-target-url: '/login/authFailed'
+            logout-target-url: '/'
+            unauthorized-target-url: '/unauthorized'
+            forbidden-target-url: '/forbidden'
+    session:
+        http:
+            cookie: true
+            header: false
+    router:
+        static-resources:
+            default:
+                enabled: true
+                mapping: /public/**
+                paths:
+                    - classpath:public
+    executors:
+        scheduled:
+            type: scheduled
+            core-pool-size: 30
+
+                    
