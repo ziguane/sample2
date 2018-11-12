@@ -1,4 +1,4 @@
-package com.erelav.gvhr.controllers;
+package sample2.controllers;
 
 import java.security.Principal;
 import java.util.HashMap;
