@@ -26,6 +26,8 @@ micronaut:
         http:
             cookie: true
             header: false
+            cookiePath: /
+            
     router:
         static-resources:
             default:
